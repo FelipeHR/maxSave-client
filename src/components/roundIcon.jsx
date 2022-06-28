@@ -1,52 +1,67 @@
 import theme from '../theme.js';
 import React from 'react';
+import { Text, StyleSheet, View } from "react-native";
+import IconAwesome from 'react-native-vector-icons/FontAwesome5';
+import IconIonicons from 'react-native-vector-icons/Ionicons';
 
 
 const styles = StyleSheet.create({
-    default: {
-        fontSize: theme.fontSize.medium,
-        fontFamily: theme.fonts.main,
-        color: theme.colors.white
+   defaultCircle: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: theme.colors.secondary,
     },
-    colorPrimary: {
-        color: theme.colors.white
+    bigCircle: {
+        width: 100,
+        height: 100,
+        borderRadius: 50,
     },
-    colorSecondary: {
-        color: theme.colors.black
+    mediumCircle: {
+        width: 80,
+        height: 80,
+        borderRadius: 40,
     },
-    colorTertiary: {
-        color: theme.colors.fontRed
+    smallCircle: {
+        width : 60,
+        height: 60,
+        borderRadius: 30,
     },
-    title: {
-        fontSize: theme.fontSize.large,
-        fontWeight: theme.fontWeight.bold,
-    },
-    subheading: {
-        fontSize: theme.fontSize.medium,
-        fontWeight: theme.fontWeight.medium,
-    },
-    body: {
-        fontSize: theme.fontSize.small,
-        fontWeight: theme.fontWeight.regular,
-    }
+
 
 })
 
-export default function roundIcon( {children, colorIcon, colorRound, size, icon, style, ...props} ) {
-    const textStyle = [
-        styles.text, 
-        color == 'white' && styles.colorPrimary,
-        color == 'black' && styles.colorSecondary,
-        color == 'fontRed' && styles.colorTertiary,
-        type == 'title' && styles.title,
-        type == 'subheading' && styles.subheading,
-        type == 'body' && styles.body
+export default function roundIcon( {children, size, icon, style, ...props} ) {
+    const ionicons = {
+        'Comida': 'fast-food',
+        'Transporte': 'bus',
+        'Ropa': 'shirt',
+        'Juegos': 'game-controller'
+    }
+    const fontAwesome = {
+        'Mascota': 'cat',
+        'Pasatiempos': 'theater-masks',
+        'Cuentas': 'lightbulb',
+        'Estudios': 'university',
+        'Salud': 'heartbeat'
+    }
+    const roundStyle = [
+        styles.defaultCircle, 
+        size == 'small' && styles.smallCircle,
+        size == 'medium' && styles.mediumCircle,
+        size == 'large' && styles.bigCircle,
     ]
+    const iconSize = {
+        'small': 30,
+        'medium': 40,
+        'large': 50
+    }
     return (
-        <View>
-            <Text style = {textStyle} {...props}>
-                {children}
-            </Text>
+        <View style={roundStyle}>
+            {icon in ionicons ?
+                <IconIonicons name={ionicons[icon]} size={iconSize[size]} color={theme.colors.primary} />
+            :
+                <IconAwesome name={fontAwesome[icon]} size={iconSize[size]} color={theme.colors.primary} />
+            }
         </View>
     )
 }

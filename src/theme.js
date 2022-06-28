@@ -21,7 +21,7 @@ const theme = {
     fontSize: {
         small: 12,
         medium: 20,
-        large: 28,
+        large: 24,
     }
 }
 export default theme
