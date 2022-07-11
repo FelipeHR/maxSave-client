@@ -20,6 +20,7 @@ const theme = {
     },
     fontSize: {
         small: 12,
+        semiSmall: 16,
         medium: 20,
         large: 24,
     }
