@@ -21,7 +21,9 @@ export default function NavegationBar({ nav, ...props}) {
                 </TouchableNativeFeedback>
             </View>
             <View style= {styles.navegationIcon}>
-                <Icon name="calendar-alt" size={30} color={props.navegation == 'calendar' ? theme.colors.secondary : theme.colors.white} />
+                <TouchableWithoutFeedback onPress={(event) => change(event,"calendarScreen")}>
+                    <Icon name="calendar-alt" size={30} color={props.navegation == 'calendarScreen' ? theme.colors.secondary : theme.colors.white} />
+                </TouchableWithoutFeedback>
             </View>
             <View style= {styles.navegationIcon}>
                 <TouchableWithoutFeedback onPress={(event) => change(event,"addGasto")}>

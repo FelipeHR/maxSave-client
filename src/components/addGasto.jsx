@@ -9,10 +9,12 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import Constants from 'expo-constants';
 import { StatusBar } from "expo-status-bar";
 const AddGasto = ({navigation}) => {
-    //<ContenedorGastos title= {"Comida"} description={"Completo en tia cochina"} value = {"$5.000"} date={"01 de Julio"}  />
+   
+    var date = new Date();
+    var dateString = date.toJSON().toString().slice(0,10);
     var [value, setValue] = useState("");
     var [description, setDescription] = useState("");
-    var [date, setDate] = useState("");
+    var [date, setDate] = useState(dateString);
     var [category, setCategory] = useState("Ninguna");
     console.log(value+" "+description+" "+category+" "+date);
     const getCategory = (categoria) => {
@@ -91,10 +93,10 @@ const AddGasto = ({navigation}) => {
                     />
                 </View>
                <View style= {{margin:10, minHeight:60, maxHeight:650}}>
-                    <Calendary getDate={getDate}/>
+                    <Calendary getDate={getDate} today={dateString}/>
                 </View>
                 <View style= {{margin:10,height:250, justifyContent: "center"}}>
-                    <ContenedorCategorias getCategory={getCategory}/>
+                    <ContenedorCategorias getCategory={getCategory} />
                 </View>
 
             </View>

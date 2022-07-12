@@ -27,19 +27,16 @@ LocaleConfig.locales['es'] = {
 };
 LocaleConfig.defaultLocale = 'es';
 
-export default function CalendarScreen  ({getDate}) {
+export default function CalendarScreen  ({getDate, today}) {
   var date = new Date();
-var dateString = date.toJSON().toString().slice(0,10); 
-const INITIAL_DATE = dateString;
-var diaSeleccionado = INITIAL_DATE;
-  useEffect(() => {
-    getDate(diaSeleccionado)
-  }, [])
+  var dateString = date.toJSON().toString().slice(0,10); 
+  const INITIAL_DATE = today;
+  const [diaSeleccionado,setDiaSeleccionado] = useState(INITIAL_DATE);
   const [selected, setSelected] = useState(INITIAL_DATE);
   const [visible, setVisible] = useState(false);
 
   const onDayPress: CalendarProps['onDayPress'] = useCallback(day => {
-    diaSeleccionado = day.dateString;
+    setDiaSeleccionado(day.dateString);
     //console.log(day.dateString)
     setSelected(day.dateString);
     getDate(day.dateString)
