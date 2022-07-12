@@ -7,7 +7,7 @@ import Chart from "./chart.jsx";
 import theme from "../theme.js";
 import ContenedorCategorias from "./contenedorCategorias.jsx";
 import Constants from "expo-constants";
-const Main = ({navigation}) => {
+const CalendarScreen = ({navigation}) => {
 
     const info =[
         {value: 50000, text: "Entretenimiento", focused: false, color: "#e13c33"},
@@ -18,15 +18,9 @@ const Main = ({navigation}) => {
     ]
     return (
         <View style={styles.container}>
-            <View style = {{ width: '100%', alignItems: 'center', justifyContent: 'center'}}>
-                <ContenedorGastos title= {"Estudios"} description={"Completo en tia cochina"} 
-                    value = {"$5.000"} date={"01 de Julio"}  />
-               
-               
-            </View>
             <Chart  info = {info} />
             <View style = {{ bottom: 39,position: "absolute",width: '100%', alignItems: 'center', justifyContent: 'center'}}>
-                <NavegationBar nav= {navigation} navegation = 'home'/>
+                <NavegationBar nav= {navigation} navegation = 'calendarScreen'/>
             </View>
         </View>
     )
@@ -40,4 +34,4 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start'
       },
 });
-export default Main
+export default CalendarScreen

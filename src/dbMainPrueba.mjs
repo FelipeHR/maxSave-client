@@ -1,6 +1,6 @@
 //require('./database/db')();
 import { MongoClient } from 'mongodb';
-import {insertGasto} from './database/db2.mjs'
+import {insertGasto} from './database/db2.js'
 
 insertGasto(1234, "2022-06-11", "Pasatiempos", "película");
 

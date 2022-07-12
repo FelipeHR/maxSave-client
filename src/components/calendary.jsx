@@ -1,4 +1,4 @@
-import React, {useState, Fragment, useCallback, useMemo} from 'react';
+import React, {useState, Fragment, useCallback, useMemo, useEffect} from 'react';
 import {StyleSheet, View, ScrollView, Text, TouchableOpacity, Alert} from 'react-native';
 import {Calendar, CalendarProps} from 'react-native-calendars';
 import theme from '../theme';
@@ -27,16 +27,20 @@ LocaleConfig.locales['es'] = {
 };
 LocaleConfig.defaultLocale = 'es';
 
-const INITIAL_DATE = '2022-06-26';
-var diaSeleccionado = 'Hoy';
-const CalendarScreen = () => {
+export default function CalendarScreen  ({getDate, today}) {
+  var date = new Date();
+  var dateString = date.toJSON().toString().slice(0,10); 
+  const INITIAL_DATE = today;
+  const [diaSeleccionado,setDiaSeleccionado] = useState(INITIAL_DATE);
   const [selected, setSelected] = useState(INITIAL_DATE);
   const [visible, setVisible] = useState(false);
 
   const onDayPress: CalendarProps['onDayPress'] = useCallback(day => {
-    diaSeleccionado = day.day + '-' + day.month + '-' + day.year;
+    setDiaSeleccionado(day.dateString);
+    //console.log(day.dateString)
     setSelected(day.dateString);
-    Alert.alert('Seleccionaste una fecha','La fecha es '+ day.day + '-' + day.month + '-' + day.year)
+    getDate(day.dateString)
+    //Alert.alert('Seleccionaste una fecha','La fecha es '+ day.day + '-' + day.month + '-' + day.year)
   }, []);
 
   press = () => {
@@ -73,6 +77,7 @@ const CalendarScreen = () => {
             onDayPress={onDayPress}
             markedDates={marked}
             firstDay={1}
+            maxDate={INITIAL_DATE}
             theme={{
                 calendarBackground: theme.colors.primary,
                 monthTextColor: theme.colors.fontRed,
@@ -96,7 +101,7 @@ const CalendarScreen = () => {
   );
 };
 
-export default CalendarScreen;
+
 
 const styles = StyleSheet.create({
   calendar: {
