@@ -1,23 +1,14 @@
 require('./database/db')();
 
-/*
-const a = getGastosCategoria("Ropa").then( (result) => {
-    
-    console.log(result)
+insertGasto(1234, "2022-06-11", "Pasatiempos", "película");
 
-    return gastosDict
-    
-})
-*/
+//a = getGastosCategoria("Pasatiempos");
 
-//insertGasto(1234, "11-04-2004", "Pasatiempos", "película");
+//a = getUltimosGastos();
 
-a = getGastosCategoria("Pasatiempos")
+getGastoMes();
 
-setTimeout(() => {console.log(a)}, 2000)
-
-
-
+//setTimeout(() => {console.log(a)}, 4000);
 
 
 
