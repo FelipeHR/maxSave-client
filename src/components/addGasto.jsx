@@ -8,6 +8,9 @@ import ContenedorCategorias from "./contenedorCategorias.jsx";
 import Icon from "react-native-vector-icons/FontAwesome";
 import Constants from 'expo-constants';
 import { StatusBar } from "expo-status-bar";
+//import { MongoClient } from 'mongodb';
+//import {insertGasto} from '../database/db2.js'
+
 const AddGasto = ({navigation}) => {
    
     var date = new Date();
@@ -24,9 +27,10 @@ const AddGasto = ({navigation}) => {
         setDate(date);
     }
     const send = () => {
+
+        
         if((value != "" && value !== "0") && category != "Ninguna" && date != ""){
             console.log("Se puede enviar");
-            
             navigation.navigate('home');
         }
         else{

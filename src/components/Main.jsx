@@ -21,7 +21,6 @@ const Main = ({navigation}) => {
             <View style = {{ width: '100%', alignItems: 'center', justifyContent: 'center'}}>
                 <ContenedorGastos title= {"Estudios"} description={"Completo en tia cochina"} 
                     value = {"$5.000"} date={"01 de Julio"}  />
-               <Calendary/>
                
                
             </View>
