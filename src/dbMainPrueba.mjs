@@ -1,4 +1,6 @@
-require('./database/db')();
+//require('./database/db')();
+import { MongoClient } from 'mongodb';
+import {insertGasto} from './database/db2.mjs'
 
 insertGasto(1234, "2022-06-11", "Pasatiempos", "película");
 
@@ -6,7 +8,7 @@ insertGasto(1234, "2022-06-11", "Pasatiempos", "película");
 
 //a = getUltimosGastos();
 
-getGastoMes();
+//getGastoMes();
 
 //setTimeout(() => {console.log(a)}, 4000);
 

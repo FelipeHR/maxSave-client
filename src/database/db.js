@@ -165,12 +165,9 @@ module.exports = function() {
             console.log(`Connected to database ${db.databaseName}`)
             const gastos = db.collection("Gastos");
 
-            var today = new Date();
-            today.toJSON().slice(0,10)
-            var mesActual = today.getFullYear()+'-'+(today.getMonth()+1)+'-'
+            var today = new Date().toJSON().slice(0, 10);
             
-
-            console.log(mesActual)
+            console.log(today)
 
             const searchCursor = await gastos.find({"fecha":{$regex:mesActual}})
             
