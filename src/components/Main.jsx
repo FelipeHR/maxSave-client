@@ -20,6 +20,7 @@ const Main = () => {
                     value = {"$5.000"} date={"01 de Julio"}  />
                <Calendary/>
                
+               
             </View>
             <Chart  info = {info} />
             <NavegationBar navegation = 'home'/>

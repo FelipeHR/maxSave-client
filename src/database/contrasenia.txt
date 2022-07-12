@@ -1,1 +1,2 @@
 2laSw16x9MUf2rAv
+'mongodb+srv://Checho:2laSw16x9MUf2rAv@serverlessinstance0.wkk1z.mongodb.net/?retryWrites=true&w=majority'
