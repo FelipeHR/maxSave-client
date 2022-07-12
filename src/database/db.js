@@ -65,41 +65,39 @@ module.exports = function() {
             
             result = await searchCursor.toArray();
 
-            //return result
-
-            //console.log(result)
-            
-            
             result.forEach(r => {
                 var dict = {};
                 dict["id"] = r._id
-                dict["monto"] = r.monto
-                dict["fecha"] = r.fecha
-                dict["categoria"] = r.categoria
-                dict["descripcion"] = r.descripcion
+                dict["value"] = r.monto
+                dict["date"] = r.fecha
+                dict["title"] = r.categoria
+                dict["description"] = r.descripcion
                 gastosDict.push(dict)
             })
+
+            //return result
+
+            //console.log(result)
 
             //console.log(gastosDict)
             
         }
         catch(ex){
+
             console.error(`Error bruh ${ex}`)
+
         }
 
         finally{
 
             client.close();
+            return gastosDict
             //console.log(gastosDict);
             
-        
         }
-
-        return gastosDict
 
     };
 
-    getGastosCategoria().then( (value) => {return value})
-
+    //getGastosCategoria().then( (value) => {return value})
 
 }
