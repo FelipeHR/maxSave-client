@@ -1,26 +1,32 @@
 import React from "react";
-import { Text, StyleSheet, View, TouchableNativeFeedback } from "react-native";
+import { Text, StyleSheet, View, TouchableNativeFeedback, TouchableWithoutFeedback } from "react-native";
 import StyledText from "./StyledText.jsx";
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import theme from '../theme.js';
 import { Colors } from "react-native/Libraries/NewAppScreen";
 
 
-export default function NavegationBar({page, ...props}) {
-    
+export default function NavegationBar({ nav, ...props}) {
+    const change = (e,page) => {
+        if(page !== props.navegation){
+            console.log(page);
+            nav.navigate(page);
+        }
+    }
     return(
-        <>
         <View style= { styles.container}>
             <View style= {styles.navegationIcon}>
-                <TouchableNativeFeedback>
-                <Icon name="home" size={30} color={props.navegation == 'home' ? theme.colors.secondary : theme.colors.white} />
+                <TouchableNativeFeedback onPress={(event) => change(event,"home")}>
+                    <Icon name="home" size={30} color={props.navegation == 'home' ? theme.colors.secondary : theme.colors.white} />
                 </TouchableNativeFeedback>
             </View>
             <View style= {styles.navegationIcon}>
                 <Icon name="calendar-alt" size={30} color={props.navegation == 'calendar' ? theme.colors.secondary : theme.colors.white} />
             </View>
             <View style= {styles.navegationIcon}>
-                <Icon name="plus-circle" size={45} color="#e13c33" />
+                <TouchableWithoutFeedback onPress={(event) => change(event,"addGasto")}>
+                    <Icon name="plus-circle" size={45} color="#e13c33" />
+                </TouchableWithoutFeedback>
             </View>
             <View style= {styles.navegationIcon}>
                 <Icon name="history" size={30} color={props.navegation == 'history' ? theme.colors.secondary : theme.colors.white} />
@@ -29,7 +35,6 @@ export default function NavegationBar({page, ...props}) {
                 <Icon name="ellipsis-v" size={30} color={props.navegation == 'options' ? theme.colors.secondary : theme.colors.white} />
             </View>
         </View>
-        </>
     )
 }
 const styles = StyleSheet.create({

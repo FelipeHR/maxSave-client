@@ -12,7 +12,7 @@ export default function Chart( { ...props} ) {
         setValor(suma())
     }, [])
 
-    const  [categoria, setCategoria] = useState("total");
+    const  [categoria, setCategoria] = useState("Todas");
     const  [valor,setValor] = useState(0);
     const  [porcentaje, setPorcentaje] = useState("100%");
     var activos = props.info

@@ -26,11 +26,15 @@ const styles = StyleSheet.create({
         height: 60,
         borderRadius: 30,
     },
-
-
+    selected: {
+        backgroundColor: theme.colors.secondary,
+    },
+    notSelected: {
+        backgroundColor: theme.colors.tertiary,
+    }
 })
 
-export default function roundIcon( {children, size, icon, style, ...props} ) {
+export default function roundIcon( {children, size, icon, style, color, ...props} ) {
     const ionicons = {
         'Comida': 'fast-food',
         'Transporte': 'bus',
@@ -42,10 +46,13 @@ export default function roundIcon( {children, size, icon, style, ...props} ) {
         'Pasatiempos': 'theater-masks',
         'Cuentas': 'lightbulb',
         'Estudios': 'university',
-        'Salud': 'heartbeat'
+        'Salud': 'heartbeat',
+        'Otros': 'question'
     }
     const roundStyle = [
         styles.defaultCircle, 
+        color == 'select' && styles.selected,
+        color == 'notSelect' && styles.notSelected,
         size == 'small' && styles.smallCircle,
         size == 'medium' && styles.mediumCircle,
         size == 'large' && styles.bigCircle,

@@ -12,6 +12,7 @@ const ContenedorGastos = (props) => (
     alignItems: 'center',
     padding: 10
     }}>
+        
         <RoundIcon size='medium'  icon={props.title} />
         <View style= {{ flexDirection: 'row', justifyContent: 'center', margin: 5}}>
             <View style= {{ justifyContent: 'center', alignItems: 'flex-start', width: 150}}>
