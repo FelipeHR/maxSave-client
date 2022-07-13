@@ -31,7 +31,9 @@ export default function NavegationBar({ nav, ...props}) {
                 </TouchableWithoutFeedback>
             </View>
             <View style= {styles.navegationIcon}>
-                <Icon name="history" size={30} color={props.navegation == 'history' ? theme.colors.secondary : theme.colors.white} />
+                <TouchableWithoutFeedback onPress={(event) => change(event,"history")}>
+                    <Icon name="history" size={30} color={props.navegation == 'history' ? theme.colors.secondary : theme.colors.white} />
+                </TouchableWithoutFeedback>
             </View>
             <View style= {styles.navegationIcon}>
                 <Icon name="ellipsis-v" size={30} color={props.navegation == 'options' ? theme.colors.secondary : theme.colors.white} />

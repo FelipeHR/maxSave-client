@@ -3,6 +3,7 @@ import React from 'react';
 import { Alert, StyleSheet, Text, View, TouchableWithoutFeedback, TouchableNativeFeedback } from 'react-native';
 import Main from './src/components/Main';
 import AddGasto from './src/components/addGasto';
+import History from './src/components/history';
 import theme from './src/theme';
 import Constants from 'expo-constants';
 import CalendarScreen from './src/components/calendarScreen';
@@ -19,6 +20,7 @@ export default function App() {
         { headerShown: false,
       }} >
         <Stack.Screen name="home" component={Main} />
+        <Stack.Screen name="history" component={History} />
         <Stack.Screen name="addGasto" component={AddGasto} />
         <Stack.Screen name="calendarScreen" component={CalendarScreen} />
         

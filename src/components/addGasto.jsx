@@ -26,6 +26,9 @@ const AddGasto = ({navigation}) => {
     const getDate = (date) => {
         setDate(date);
     }
+    const back = () => {
+        navigation.goBack();
+    }
     const send = () => {
 
         if((value != "" && value !== "0") && category != "Ninguna" && date != ""){
@@ -68,7 +71,9 @@ const AddGasto = ({navigation}) => {
             <View style = {{ width: '100%', alignItems: 'center', justifyContent: 'center'}}>
                 <View style= {{marginLeft:20, marginTop:20 , flexDirection: "row", alignSelf: "flex-start", justifyContent: "center"}}>
                     <View style={{flex:1}}>
-                        <Icon name="arrow-left" size={30} color={theme.colors.white} />
+                        <TouchableWithoutFeedback onPress={back}>
+                            <Icon name="arrow-left" size={30} color={theme.colors.white} />
+                        </TouchableWithoutFeedback>
                     </View>
                     <View style={{flex:2, alignItems: "center"}}>
                         <StyledText color='white' type='title'> Añadir Gasto</StyledText>

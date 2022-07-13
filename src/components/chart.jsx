@@ -64,7 +64,7 @@ export default function Chart( { ...props} ) {
                         <View style={{justifyContent: 'center', alignItems: 'center'}}>
                             <Text
                             style={{fontSize: 22, color: 'white', fontWeight: 'bold'}}>
-                            {porcentaje}
+                            { props.info.length !=0 ? porcentaje : "-"}
                             </Text>
                         </View>
                         );}}
@@ -73,11 +73,11 @@ export default function Chart( { ...props} ) {
                 <View style={{ alignItems: "center", justifyContent: "space-around", padding: 5, flex: 1}}>
                     <View style={{ alignItems: "center", justifyContent: "space-around", margin: 5,flex: 1}}>
                         <Text style={{color: theme.colors.white,fontWeight: theme.fontWeight.bold, fontSize: theme.fontSize.medium, marginTop: 10}}>{"Categoria"}</Text>
-                        <Text style={{color: theme.colors.white,fontWeight: theme.fontWeight.regular, fontSize: theme.fontSize.semiSmall, marginTop: 5}}>{categoria}</Text>
+                        <Text style={{color: theme.colors.white,fontWeight: theme.fontWeight.regular, fontSize: theme.fontSize.semiSmall, marginTop: 5}}>{ props.info.length !=0 ? categoria : "Sin datos"} </Text>
                     </View>
                     <View style={{ alignItems: "center", justifyContent: "space-around", margin: 5, flex: 1}}>
                         <Text style={{color: theme.colors.white,fontWeight: theme.fontWeight.bold, fontSize: theme.fontSize.medium, marginTop: 10}}>{"Total"}</Text>
-                        <Text style={{color: theme.colors.white,fontWeight: theme.fontWeight.regular, fontSize: theme.fontSize.semiSmall, marginTop: 5}}>{"$ "+valor}</Text>
+                        <Text style={{color: theme.colors.white,fontWeight: theme.fontWeight.regular, fontSize: theme.fontSize.semiSmall, marginTop: 5}}>{ props.info.length !=0 ? "$ "+valor : "Sin datos"}</Text>
                     </View>
                  </View>
             </View>
