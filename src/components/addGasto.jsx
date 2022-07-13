@@ -28,9 +28,26 @@ const AddGasto = ({navigation}) => {
     }
     const send = () => {
 
-        
         if((value != "" && value !== "0") && category != "Ninguna" && date != ""){
+            let gasto = {
+                monto: value,
+                descripcion: description,
+                categoria: category,
+                fecha: date
+            }
+
             console.log("Se puede enviar");
+            const res = fetch('https://maxSave.up.railway.app/insertGasto', {
+                'method' : 'POST',
+                headers : {
+                    'Accept': 'application/json, text/plain, */*',
+                    'Content-Type':'application/json'
+                },
+                body:JSON.stringify(gasto)
+            }).then(response=>response.json())
+            res.then(data=>{
+                console.log(data.message);
+            })
             navigation.navigate('home');
         }
         else{

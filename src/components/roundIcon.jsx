@@ -26,6 +26,11 @@ const styles = StyleSheet.create({
         height: 60,
         borderRadius: 30,
     },
+    verySmallCircle: {
+        width : 30,
+        height: 30,
+        borderRadius: 15,
+    },
     selected: {
         backgroundColor: theme.colors.secondary,
     },
@@ -56,8 +61,10 @@ export default function roundIcon( {children, size, icon, style, color, ...props
         size == 'small' && styles.smallCircle,
         size == 'medium' && styles.mediumCircle,
         size == 'large' && styles.bigCircle,
+        size == 'verySmall' && styles.verySmallCircle,
     ]
     const iconSize = {
+        'verySmall': 15,
         'small': 30,
         'medium': 40,
         'large': 50

@@ -42,37 +42,44 @@ export default function Chart( { ...props} ) {
         return sumatoria
     }
     return (
-        <View style={{margin: 10,padding: 20, backgroundColor: theme.colors.primary, borderRadius: 20, alignItems: "center"}} >
-            <View style={{height:120}}>
-            <PieChart  data = {props.info} 
-            textColor={theme.colors.white}
-            onPress= {(index, selected) => {index.focused=== true ? index.focused= false :index.focused= true, change(index.text,index.value,selected)}}
-            labelsPosition= {"mid"}
-            focusOnPress
-            semiCircle
-            donut
-            innerRadius = {120/3*2}
-            innerCircleColor={theme.colors.primary}
-            centerLabelComponent={() => {
-                return (
-                  <View style={{justifyContent: 'center', alignItems: 'center'}}>
-                    <Text
-                      style={{fontSize: 22, color: 'white', fontWeight: 'bold'}}>
-                      {porcentaje}
-                    </Text>
-                  </View>
-                );}}
-            />
-            </View>
-            <View style={{flexDirection: "row", alignItems: "center", justifyContent: "space-around", padding: 5}}>
-                <View style={{ alignItems: "center", justifyContent: "space-around", margin: 5,flex: 1}}>
-                    <Text style={{color: theme.colors.white,fontWeight: theme.fontWeight.bold, fontSize: theme.fontSize.medium, marginTop: 10}}>{"Categoria"}</Text>
-                    <Text style={{color: theme.colors.white,fontWeight: theme.fontWeight.regular, fontSize: theme.fontSize.semiSmall, marginTop: 10}}>{categoria}</Text>
+        <View style={{margin: 5,padding: 20, backgroundColor: theme.colors.primary, borderRadius: 20, alignItems: "center"}} >
+             <Text style={{color: theme.colors.white,fontWeight: theme.fontWeight.bold, fontSize: theme.fontSize.medium}}>Resumen Gastos</Text>
+             <Text style={{color: theme.colors.secondary,fontWeight: theme.fontWeight.bold, fontSize: theme.fontSize.medium}}>{props.dia}</Text>
+            <View style={{height:150, width:"95%", flexDirection: "row",justifyContent: "space-around"}}>
+            <Text style={{color: theme.colors.white,fontWeight: theme.fontWeight.bold, fontSize: theme.fontSize.medium, marginBottom: 10}}></Text>
+                <View style={{ justifyContent: "space-between", alignItems: "center",flex: 2}}>
+                    <Text style={{color: theme.colors.white,fontWeight: theme.fontWeight.bold, fontSize: theme.fontSize.medium, marginBottom: 10}}></Text>
+                    <PieChart  data = {props.info} 
+                    textColor={theme.colors.white}
+                    onPress= {(index, selected) => {index.focused=== true ? index.focused= false :index.focused= true, change(index.text,index.value,selected)}}
+                    labelsPosition= {"mid"}
+                    focusOnPress
+                    semiCircle
+                    donut
+                    radius={90}
+                    innerRadius = {120/5*2}
+                    innerCircleColor={theme.colors.primary}
+                    centerLabelComponent={() => {
+                        return (
+                        <View style={{justifyContent: 'center', alignItems: 'center'}}>
+                            <Text
+                            style={{fontSize: 22, color: 'white', fontWeight: 'bold'}}>
+                            {porcentaje}
+                            </Text>
+                        </View>
+                        );}}
+                    />
                 </View>
-                <View style={{ alignItems: "center", justifyContent: "space-around", margin: 5, flex: 1}}>
-                    <Text style={{color: theme.colors.white,fontWeight: theme.fontWeight.bold, fontSize: theme.fontSize.medium, marginTop: 10}}>{"Total"}</Text>
-                    <Text style={{color: theme.colors.white,fontWeight: theme.fontWeight.regular, fontSize: theme.fontSize.semiSmall, marginTop: 10}}>{"$ "+valor}</Text>
-                </View>
+                <View style={{ alignItems: "center", justifyContent: "space-around", padding: 5, flex: 1}}>
+                    <View style={{ alignItems: "center", justifyContent: "space-around", margin: 5,flex: 1}}>
+                        <Text style={{color: theme.colors.white,fontWeight: theme.fontWeight.bold, fontSize: theme.fontSize.medium, marginTop: 10}}>{"Categoria"}</Text>
+                        <Text style={{color: theme.colors.white,fontWeight: theme.fontWeight.regular, fontSize: theme.fontSize.semiSmall, marginTop: 5}}>{categoria}</Text>
+                    </View>
+                    <View style={{ alignItems: "center", justifyContent: "space-around", margin: 5, flex: 1}}>
+                        <Text style={{color: theme.colors.white,fontWeight: theme.fontWeight.bold, fontSize: theme.fontSize.medium, marginTop: 10}}>{"Total"}</Text>
+                        <Text style={{color: theme.colors.white,fontWeight: theme.fontWeight.regular, fontSize: theme.fontSize.semiSmall, marginTop: 5}}>{"$ "+valor}</Text>
+                    </View>
+                 </View>
             </View>
         </View>
     )
