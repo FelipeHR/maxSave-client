@@ -50,6 +50,9 @@ const AddGasto = ({navigation}) => {
             }).then(response=>response.json())
             res.then(data=>{
                 console.log(data.message);
+                if(data.message == "Gasto Insertado"){
+                    Alert.alert("Gasto guardado", "El gasto se ha guardado correctamente");
+                }
             })
             navigation.navigate('home');
         }
